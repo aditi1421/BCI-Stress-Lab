@@ -1,0 +1,21 @@
+{
+  "all_learned_arrays_exactly_equal": true,
+  "baseline_metrics_exactly_equal": true,
+  "baseline_predictions_exactly_equal": true,
+  "frozen_model_fingerprints": {
+    "bandpower_lda": "330f1a47f2b79c11c489577f5e4adde24de7d50772cb60b749d265e812253c00",
+    "csp_lda": "f84d7e16d061678b1bfa05c9c8138498792685a38ba09e5797d6998f6901fff9"
+  },
+  "original_config_equal": true,
+  "prediction_checks": {
+    "bandpower_lda": {
+      "learned_state_unchanged": true,
+      "prediction_batch_independent": true
+    },
+    "csp_lda": {
+      "learned_state_unchanged": true,
+      "prediction_batch_independent": true
+    }
+  },
+  "zero_epochs_exactly_equal": true
+}

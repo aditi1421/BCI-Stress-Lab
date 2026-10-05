@@ -1,0 +1,20 @@
+{
+  "csp_components": 4,
+  "csp_regularization": 0.1,
+  "dataset_commit": "af0c461f23e8a7aa782475e3c22d160bc39eb170",
+  "epoch_start_s": 1.0,
+  "epoch_stop_s": 4.0,
+  "filter_order": 4,
+  "high_hz": 30.0,
+  "low_hz": 8.0,
+  "permutation_count": 199,
+  "permutation_seed": 20261005,
+  "power_floor": 1e-24,
+  "subject": 1,
+  "test_run": 12,
+  "train_runs": [
+    4,
+    8
+  ],
+  "warmup_s": 2.0
+}

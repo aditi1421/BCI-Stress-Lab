@@ -1,0 +1,92 @@
+{
+  "all_model_states_unchanged": true,
+  "condition_count": 110,
+  "decoder_row_count": 220,
+  "input_fingerprints_after": {
+    "native_runs_uv": {
+      "12": "a1d3ded91e849d342d1af47604189fd0c362f20c935e752a1b6093edae952fcb",
+      "4": "58a6bdea9823c40943f533dc257ee2b663fd69501953da26ba0f5228661a4700",
+      "8": "2ec2e7a4dbc7fb541e5e202a21c59e24099de669c563b825e1dd287182b5eeeb"
+    },
+    "scale_uv": "65b1f151105dbe28547eed78efe90b61ddcb7dd0e65970cececa2db91a4097cc",
+    "test_X": "113d01e03d607c995de9ad159faae887fe8779076d0896f79f78c63347310df9",
+    "test_y": "12593df020026a0ba635b2d5c388fe4e6f587d92c0431edb0530e636c33a73dc",
+    "train_X": "eccbc3507316ddadab863250e7cb1db06531da07980e9ec774eeaf4fc2d2560b",
+    "train_y": "fcaa1ffcad346b3e3ad0eb3dd2e0ff34d4c981c7f21b35b4282b47dd5ca2f49f"
+  },
+  "input_fingerprints_before": {
+    "native_runs_uv": {
+      "12": "a1d3ded91e849d342d1af47604189fd0c362f20c935e752a1b6093edae952fcb",
+      "4": "58a6bdea9823c40943f533dc257ee2b663fd69501953da26ba0f5228661a4700",
+      "8": "2ec2e7a4dbc7fb541e5e202a21c59e24099de669c563b825e1dd287182b5eeeb"
+    },
+    "scale_uv": "65b1f151105dbe28547eed78efe90b61ddcb7dd0e65970cececa2db91a4097cc",
+    "test_X": "113d01e03d607c995de9ad159faae887fe8779076d0896f79f78c63347310df9",
+    "test_y": "12593df020026a0ba635b2d5c388fe4e6f587d92c0431edb0530e636c33a73dc",
+    "train_X": "eccbc3507316ddadab863250e7cb1db06531da07980e9ec774eeaf4fc2d2560b",
+    "train_y": "fcaa1ffcad346b3e3ad0eb3dd2e0ff34d4c981c7f21b35b4282b47dd5ca2f49f"
+  },
+  "interpretation": "Seed spread is descriptive, conditional on one subject and 15 test trials",
+  "prediction_row_count": 3300,
+  "source_files_unchanged": true,
+  "split": {
+    "disjoint_runs": true,
+    "disjoint_trial_ids": true,
+    "no_duplicate_epoch_across_splits": true,
+    "same_channel_order_and_epoch_dimensions": true,
+    "test_X_sha256": "113d01e03d607c995de9ad159faae887fe8779076d0896f79f78c63347310df9",
+    "test_trials": [
+      "sub-001_run-12_sample-672",
+      "sub-001_run-12_sample-2000",
+      "sub-001_run-12_sample-3328",
+      "sub-001_run-12_sample-4656",
+      "sub-001_run-12_sample-5984",
+      "sub-001_run-12_sample-7312",
+      "sub-001_run-12_sample-8640",
+      "sub-001_run-12_sample-9968",
+      "sub-001_run-12_sample-11296",
+      "sub-001_run-12_sample-12624",
+      "sub-001_run-12_sample-13952",
+      "sub-001_run-12_sample-15280",
+      "sub-001_run-12_sample-16608",
+      "sub-001_run-12_sample-17936",
+      "sub-001_run-12_sample-19264"
+    ],
+    "test_y_sha256": "12593df020026a0ba635b2d5c388fe4e6f587d92c0431edb0530e636c33a73dc",
+    "train_X_sha256": "eccbc3507316ddadab863250e7cb1db06531da07980e9ec774eeaf4fc2d2560b",
+    "train_trials": [
+      "sub-001_run-4_sample-672",
+      "sub-001_run-4_sample-2000",
+      "sub-001_run-4_sample-3328",
+      "sub-001_run-4_sample-4656",
+      "sub-001_run-4_sample-5984",
+      "sub-001_run-4_sample-7312",
+      "sub-001_run-4_sample-8640",
+      "sub-001_run-4_sample-9968",
+      "sub-001_run-4_sample-11296",
+      "sub-001_run-4_sample-12624",
+      "sub-001_run-4_sample-13952",
+      "sub-001_run-4_sample-15280",
+      "sub-001_run-4_sample-16608",
+      "sub-001_run-4_sample-17936",
+      "sub-001_run-4_sample-19264",
+      "sub-001_run-8_sample-672",
+      "sub-001_run-8_sample-2000",
+      "sub-001_run-8_sample-3328",
+      "sub-001_run-8_sample-4656",
+      "sub-001_run-8_sample-5984",
+      "sub-001_run-8_sample-7312",
+      "sub-001_run-8_sample-8640",
+      "sub-001_run-8_sample-9968",
+      "sub-001_run-8_sample-11296",
+      "sub-001_run-8_sample-12624",
+      "sub-001_run-8_sample-13952",
+      "sub-001_run-8_sample-15280",
+      "sub-001_run-8_sample-16608",
+      "sub-001_run-8_sample-17936",
+      "sub-001_run-8_sample-19264"
+    ],
+    "train_y_sha256": "fcaa1ffcad346b3e3ad0eb3dd2e0ff34d4c981c7f21b35b4282b47dd5ca2f49f"
+  },
+  "zero_condition_count": 20
+}

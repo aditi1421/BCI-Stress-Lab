@@ -1,0 +1,50 @@
+{
+  "bandpower_lda": {
+    "accuracy": 0.4666666666666667,
+    "balanced_accuracy": 0.4642857142857143,
+    "class_order": [
+      "left",
+      "right"
+    ],
+    "class_recall": {
+      "left": 0.42857142857142855,
+      "right": 0.5
+    },
+    "confusion_matrix": [
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "n_trials": 15
+  },
+  "csp_lda": {
+    "accuracy": 0.6,
+    "balanced_accuracy": 0.6071428571428572,
+    "class_order": [
+      "left",
+      "right"
+    ],
+    "class_recall": {
+      "left": 0.7142857142857143,
+      "right": 0.5
+    },
+    "confusion_matrix": [
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "confusion_matrix_axes": "rows=true, columns=predicted",
+    "n_trials": 15
+  }
+}
