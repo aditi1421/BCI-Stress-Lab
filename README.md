@@ -1,8 +1,31 @@
 # BCI Stress Lab
 
-An offline, CPU-only motor-imagery decoding baseline using audited OpenNeuro **ds004362**, participant **sub-001**. This release implements the original-signal decoding stage. The project name describes the planned later stress experiments.
+Offline, CPU-only motor-imagery decoding experiments using audited OpenNeuro **ds004362**, participant **sub-001**. The repository contains the fixed original-signal baseline and the first frozen-decoder Gaussian-noise/channel-flatline experiment.
 
 The [first fixed evaluation](reports/clean-sub001/README.md) gives **60.71% balanced accuracy for CSP + LDA** and **46.43% for channel bandpower + LDA** on 15 held-out trials. Both scores lie within their respective label-permutation reference ranges. The near-chance control and small sample limit what can be inferred. The frozen run reproduced exactly.
+
+The [first corruption experiment](reports/stress-sub001/README.md) keeps those exact fitted parameters fixed. At Gaussian severity **0.5× training RMS and above**, both decoders predict only one class for all ten seeds. At 16 flatlined channels, CSP averages **54.29% balanced accuracy** (−6.43 percentage points from its original score); bandpower scores 50% through constant-class predictions. A flat near-chance curve is not useful robustness.
+
+## First corruption experiment
+
+The [protocol](reports/stress-protocol.md) and [severity config](configs/stress.json) were frozen before nonzero scores were generated. The [adversarial review](reports/stress-review.md) approved the implementation before execution. This is a synthetic sensitivity pilot on one participant's later run, not cross-day, population, or real-world artifact validation.
+
+- Gaussian severity: **0, 0.25, 0.5, 1, 2 × each channel's pooled training RMS**, calculated from every unfiltered continuous sample in runs 4+8, including rest, without centering.
+- Channel flatlining: **0, 1, 2, 4, 8, 16** channels, with nested random subsets across severities.
+- Both families use **seeds 0–9**. The complete test recording is corrupted in native µV before the unchanged volt conversion, causal filter, and epoch extraction. Both decoders see the same corrupted epochs.
+- The original models are reconstructed once from unmodified training data and required to match every saved learned array and original prediction exactly. No condition refits or tunes a model.
+- The complete grid contains **110 recording conditions, 220 decoder rows, and 3,300 predictions**. Repeated zero rows are duplicate identity checks. Seed spread describes perturbations of these same 15 trials, not population uncertainty.
+
+After downloading the audited data and installing the locked dependencies:
+
+```sh
+uv run --offline bci-stress stress --output runs/stress-sub001
+uv run --offline python -m bci_stress.plot_stress runs/stress-sub001
+```
+
+The output directory must be new. Stress outputs include per-condition CSV/JSON metrics, predictions, confusion matrices, exact failed-channel names, training RMS and achieved noise amplitudes, mean/sample-SD/min/max summaries, configurations, source/model fingerprints, and the frozen protocol/review. `delta_balanced_accuracy` is **stressed minus original**, expressed as a fraction in machine-readable files and percentage points in plots. Four PNG/SVG comparisons show absolute balanced accuracy and baseline-relative changes for each corruption family. See [saved plots](reports/stress-sub001/plots/) and [all per-seed metrics](reports/stress-sub001/metrics.csv).
+
+All **116 tests** passed before execution. A second run reproduced all 17 deterministic result artifacts exactly. Neither the clean protocol nor its saved results changed. There is no elapsed-time experiment, fault recovery, retraining under faults, dashboard, or additional corruption family in this phase.
 
 ## Fixed experiment
 

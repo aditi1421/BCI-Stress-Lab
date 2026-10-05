@@ -1,6 +1,6 @@
 # BCI Stress Lab — implementation plan
 
-Status: the user authorized the clean decoding stage only. The current implementation uses sub-001 runs 4+8 for training and run 12 for fixed later-run evaluation, with matched CSP/LDA and per-channel log-bandpower/LDA pipelines, permutation diagnostics, and leakage checks. No signal corruption or dashboard is implemented. The sections below remain the broader research roadmap; current executable settings are in `configs/clean.json` and `README.md`. Actual-file inspection is documented in `reports/sub-001-audit.md`.
+Status: the clean decoding stage and the first frozen-decoder severity experiment are complete. Both use sub-001 runs 4+8 for training and run 12 for fixed later-run evaluation. The first stress grid covers only Gaussian noise and whole-recording channel flatlining, with seeds 0–9 and exact clean-model parity checks. See `reports/stress-sub001/README.md` for results and `reports/stress-protocol.md` for the protocol frozen before scoring. `configs/clean.json` and its saved results are unchanged. Elapsed-time exposure/recovery, known-fault retraining, additional subjects, and a dashboard remain future work. The sections below describe the broader research roadmap; `README.md` documents the implemented commands.
 
 ## Agreed scope
 

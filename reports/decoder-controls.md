@@ -2,7 +2,7 @@
 
 Status: the clean decoding stage is implemented and evaluated. The [actual-file audit](sub-001-audit.md) verified all selected trial windows. Both decoders were trained on runs **4 and 8** and evaluated on the fixed later-run test set, **run 12**, without test-set tuning. The [completed result report](clean-sub001/README.md) records 60.71% balanced accuracy for CSP + LDA and 46.43% for per-channel log-bandpower + LDA, together with 199 label permutations, leakage checks, and an exact reproducibility repeat.
 
-The corruption comparisons, known-fault refits, channel-location sweeps, and elapsed-time experiments below remain proposed future work. No signal corruptions have been implemented or evaluated.
+The [first frozen-decoder corruption experiment](stress-sub001/README.md) is now complete for Gaussian noise and random channel flatlining, with the original clean models verified and unchanged. Known-fault refits, exhaustive single-channel location sweeps, and elapsed-time experiments remain future work. The sections below retain the design rationale; the [frozen stress protocol](stress-protocol.md) specifies the executed grid and delta convention.
 
 ## What the original experiment can establish
 
@@ -19,11 +19,11 @@ There is also an important distinction: with test-only corruption and a **frozen
 
 The clean implementation uses identical EEG channels, recorded reference, causal temporal filtering, eligible trial windows, and train/test splits for both arms, with no trial rejection or interpolation. Both use a fixed numerical power floor of `1e-24` in squared input units (sensor volts or CSP projection units); it was set before test evaluation.
 
-For future corruption comparisons, also use identical corrupted signal copies, channel masks, amplitude grids, and seeds for both arms. Any learned scaling must use training data only. Save numerical failures explicitly.
+The first corruption comparison uses identical corrupted signal copies, channel masks, amplitude grids, and seeds for both arms. Gaussian scaling uses training recordings only. The full grid completed without numerical failures; no conditions were excluded.
 
 CSP is a supervised spatial decomposition whose covariance estimation and power transform are configurable. Arm B removes this learned spatial decomposition. However, **B is not covariance-free**: LDA still estimates feature covariance. Its feature dimension also differs from A. The comparison tests practical sensitivity associated with the CSP feature pipeline, not a pure causal attribution to one mathematical operation. [MNE CSP documentation](https://mne.tools/stable/generated/mne.decoding.CSP.html), [scikit-learn LDA documentation](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html)
 
-For decoder d and severity s, compute `drop_d(s) = BA_d(original) - BA_d(s)`. Compare the paired difference `drop_CSP(s) - drop_bandpower(s)` and show both absolute balanced-accuracy curves. Larger CSP degradation supports an additional CSP-pipeline vulnerability; similar degradation supports a shared vulnerability among these two decoders. Neither result proves universal BCI fragility.
+The original proposal described positive loss as `drop_d(s) = BA_d(original) - BA_d(s)`. Executed stress artifacts instead use **`delta_balanced_accuracy = BA_d(s) - BA_d(original)`**, so negative values mean degradation. Show absolute balanced accuracy alongside these paired baseline-relative changes. Larger CSP degradation can support additional sensitivity of that pipeline, subject to the different baseline performance; similar degradation can support a shared sensitivity among these two decoders. Neither result proves universal BCI fragility.
 
 Always display original baseline performance. A control already near chance has little useful performance to lose; its flatter curve is not evidence of greater practical robustness. Do not select participants using test accuracy or degrade CSP deliberately to equalize baselines. Treat inconclusive low-baseline cases as findings. Across participants, aggregate paired within-participant effects; corruption seeds and overlapping time windows are not independent participants. One participant is a mechanism pilot, not a population result.
 
@@ -40,6 +40,6 @@ Run both arms on the same fixed-severity step exposures, with multiple label-ind
 
 ## Recommendation
 
-Keep **CSP + LDA versus per-channel bandpower + LDA** as the paired comparison in later stress experiments. The clean implementation is complete, but the bandpower control is near chance on the 15 held-out trials and both observed scores fall within their respective permutation reference ranges. These results do not yet establish two usable baselines for robustness comparisons; do not tune against run 12 to improve them.
+Keep **CSP + LDA versus per-channel bandpower + LDA** as the paired comparison. The clean bandpower control is near chance on the 15 held-out trials and both original scores fall within their respective permutation reference ranges. In the first stress experiment, every one-channel flatline replicate makes bandpower predict a single class, despite its apparently improved 50% balanced accuracy. Both decoders become constant-class predictors at Gaussian severity 0.5× training RMS and above. These outcomes show sensitivity of the specific frozen pipelines; they do not establish useful robustness or justify tuning against run 12.
 
 Known-fault refitting and single-channel location experiments remain follow-up diagnostics. Any future stress results should be described as controlled robustness of these decoders on recorded EEG. Realistic outside-lab fragility will need empirically grounded artifacts or recordings collected under those conditions; swapping classifiers alone cannot establish it.
