@@ -1,6 +1,6 @@
 # BCI Stress Lab — implementation plan
 
-Status: implementation paused at the user's request. Dependency/configuration scaffolding exists; no decoder or experiment implementation and no model training. Actual-file inspection of sub-001 runs 4, 8, and 12 is complete; see `reports/sub-001-audit.md`. A matched non-CSP decoder control is now required before interpreting stress results.
+Status: the user authorized the clean decoding stage only. The current implementation uses sub-001 runs 4+8 for training and run 12 for fixed later-run evaluation, with matched CSP/LDA and per-channel log-bandpower/LDA pipelines, permutation diagnostics, and leakage checks. No signal corruption or dashboard is implemented. The sections below remain the broader research roadmap; current executable settings are in `configs/clean.json` and `README.md`. Actual-file inspection is documented in `reports/sub-001-audit.md`.
 
 ## Agreed scope
 
