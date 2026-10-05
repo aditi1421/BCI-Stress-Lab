@@ -3,9 +3,10 @@
 import csv
 import json
 
+import numpy as np
 import pytest
 
-from bci_stress.plot_stress import plot_results
+from bci_stress.plot_stress import _load_results, plot_results
 
 
 @pytest.fixture
@@ -65,3 +66,30 @@ def test_rejects_missing_summary_condition(completed_results):
     summary.write_text("\n".join(summary.read_text().splitlines()[:-1]) + "\n")
     with pytest.raises(ValueError, match="grid"):
         plot_results(completed_results)
+
+
+def test_accepts_roundoff_in_mean_of_identical_replicates(completed_results):
+    summary = completed_results / "summary.csv"
+    with summary.open(newline="") as source:
+        rows = list(csv.DictReader(source))
+    values = np.repeat(0.6071428571428572, 10)
+    for row in rows:
+        row["n_replicates"] = 10
+        if row["decoder"] == "csp_lda":
+            row.update({
+                "balanced_accuracy_mean": values.mean(),
+                "balanced_accuracy_std": values.std(ddof=1),
+                "balanced_accuracy_min": values.min(),
+                "balanced_accuracy_max": values.max(),
+            })
+    with summary.open("w", newline="") as destination:
+        writer = csv.DictWriter(destination, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    config_path = completed_results / "stress_config.json"
+    config = json.loads(config_path.read_text())
+    config["seeds"] = list(range(10))
+    config_path.write_text(json.dumps(config))
+    parsed, _, _ = _load_results(completed_results)
+    csp_row = next(row for row in parsed if row["decoder"] == "csp_lda")
+    assert csp_row["balanced_accuracy_mean"] == values.mean()

@@ -50,7 +50,11 @@ def _load_results(report_dir: Path) -> tuple[list[dict], dict, dict]:
                 row[field] = float(row[field])
                 if not np.isfinite(row[field]):
                     raise ValueError("Nonfinite summary metric")
-            if not row[f"{metric}_min"] <= row[f"{metric}_mean"] <= row[f"{metric}_max"]:
+            if not (
+                row[f"{metric}_min"] - 1e-12
+                <= row[f"{metric}_mean"]
+                <= row[f"{metric}_max"] + 1e-12
+            ):
                 raise ValueError("Summary mean falls outside its replicate range")
         if not 0 <= row["balanced_accuracy_min"] <= row["balanced_accuracy_max"] <= 1:
             raise ValueError("Balanced accuracy must be a fraction between zero and one")
