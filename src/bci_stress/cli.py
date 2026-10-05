@@ -1,4 +1,4 @@
-"""Download verified audit inputs or run the offline clean experiment."""
+"""Download verified inputs or run the fixed clean/stress experiments."""
 
 import argparse
 import hashlib
@@ -36,19 +36,31 @@ def fetch_data(data_root: Path, manifest_path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    for command in ("fetch", "run"):
+    for command in ("fetch", "run", "stress"):
         child = commands.add_parser(command)
         child.add_argument("--data-root", type=Path, default=Path("data/ds004362"))
         child.add_argument("--manifest", type=Path, default=Path("configs/sub-001-manifest.json"))
-        if command == "run":
+        if command in {"run", "stress"}:
             child.add_argument("--config", type=Path, default=Path("configs/clean.json"))
             child.add_argument("--output", type=Path, required=True)
+        if command == "stress":
+            child.add_argument("--stress-config", type=Path, default=Path("configs/stress.json"))
+            child.add_argument("--baseline", type=Path, default=Path("reports/clean-sub001"))
     arguments = parser.parse_args()
     if arguments.command == "fetch":
         fetch_data(arguments.data_root, arguments.manifest)
-    else:
+    elif arguments.command == "run":
         run_experiment(
             CleanConfig.load(arguments.config), arguments.data_root, arguments.manifest,
+            arguments.output, Path(__file__).resolve().parents[2],
+        )
+    else:
+        from .stress import run_stress
+        from .stress_config import StressConfig
+
+        run_stress(
+            StressConfig.load(arguments.stress_config), CleanConfig.load(arguments.config),
+            arguments.data_root, arguments.manifest, arguments.baseline,
             arguments.output, Path(__file__).resolve().parents[2],
         )
 
