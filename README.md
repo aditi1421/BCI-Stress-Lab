@@ -2,6 +2,8 @@
 
 An offline, CPU-only motor-imagery decoding baseline using audited OpenNeuro **ds004362**, participant **sub-001**. This release implements the original-signal decoding stage. The project name describes the planned later stress experiments.
 
+The [first fixed evaluation](reports/clean-sub001/README.md) gives **60.71% balanced accuracy for CSP + LDA** and **46.43% for channel bandpower + LDA** on 15 held-out trials. Both scores lie within their respective label-permutation reference ranges. The near-chance control and small sample limit what can be inferred. The frozen run reproduced exactly.
+
 ## Fixed experiment
 
 | Setting | Value |

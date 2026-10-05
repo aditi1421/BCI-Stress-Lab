@@ -1,0 +1,29 @@
+{
+  "axes": "rows=true, columns=predicted",
+  "class_order": [
+    "left",
+    "right"
+  ],
+  "matrices": {
+    "bandpower_lda": [
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "csp_lda": [
+      [
+        5,
+        2
+      ],
+      [
+        4,
+        4
+      ]
+    ]
+  }
+}

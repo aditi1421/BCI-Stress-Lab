@@ -1,0 +1,61 @@
+{
+  "automatic_rejection": false,
+  "epoch": "half-open [cue+1, cue+4), no baseline correction, 480 samples",
+  "filter": "causal Butterworth SOS; zero state separately at each run start",
+  "hyperparameter_search": false,
+  "label_mapping": {
+    "TASK2T1": 0,
+    "TASK2T2": 1
+  },
+  "pipeline_parameters": {
+    "bandpower_lda": {
+      "lda": {
+        "covariance_estimator": null,
+        "n_components": null,
+        "priors": [
+          0.5,
+          0.5
+        ],
+        "shrinkage": "auto",
+        "solver": "lsqr",
+        "store_covariance": false,
+        "tol": 0.0001
+      },
+      "log_bandpower": {
+        "power_floor": 1e-24
+      }
+    },
+    "csp_lda": {
+      "csp": {
+        "component_order": "mutual_info",
+        "cov_est": "concat",
+        "cov_method_params": null,
+        "info": null,
+        "log": null,
+        "n_components": 4,
+        "norm_trace": false,
+        "rank": "full",
+        "reg": 0.1,
+        "restr_type": "restricting",
+        "transform_into": "csp_space"
+      },
+      "lda": {
+        "covariance_estimator": null,
+        "n_components": null,
+        "priors": [
+          0.5,
+          0.5
+        ],
+        "shrinkage": "auto",
+        "solver": "lsqr",
+        "store_covariance": false,
+        "tol": 0.0001
+      },
+      "log_bandpower": {
+        "power_floor": 1e-24
+      }
+    }
+  },
+  "reference": "preserved acquisition reference",
+  "split": "sub-001 runs 4+8 training; run 12 fixed later-run test"
+}

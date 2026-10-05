@@ -1,0 +1,891 @@
+{
+  "dataset": "ds004362",
+  "dataset_commit": "af0c461f23e8a7aa782475e3c22d160bc39eb170",
+  "files": [
+    {
+      "path": "sourcedata/rawdata/S001/S001R04.edf",
+      "sha256": "3d161f88e1c00632585287d2ce584c2bc0f08862438eb255ea8723e00fac693d",
+      "size": 2596896
+    },
+    {
+      "path": "sourcedata/rawdata/S001/S001R08.edf",
+      "sha256": "358fb5189220725141968ae285fbe9e3f36210b834ffba71d940af308e3aca68",
+      "size": 2596896
+    },
+    {
+      "path": "sourcedata/rawdata/S001/S001R12.edf",
+      "sha256": "2b281c9b687b4c4176e83251d74743721f2d6ebd76656a972a3b9c44d9d88cd5",
+      "size": 2596896
+    },
+    {
+      "path": "sub-001/eeg/sub-001_task-motion_run-4_eeg.set",
+      "sha256": "b3f2d5148bc92a4985590536996e7bf87eb44e0a09b2b66059682e13346ab31c",
+      "size": 5935688
+    },
+    {
+      "path": "sub-001/eeg/sub-001_task-motion_run-8_eeg.set",
+      "sha256": "d56223014c405fb3a8994028f0100a4ed6c939988802a9ae920be5fe177e9d4a",
+      "size": 5935688
+    },
+    {
+      "path": "sub-001/eeg/sub-001_task-motion_run-12_eeg.set",
+      "sha256": "3a802988d8adaee922e5d8797698bb8e118739823bae61dd6403ec7dd4494ac7",
+      "size": 5935688
+    }
+  ],
+  "manifest_sha256": "4ae64e20af71e3da8705c70d16bd231de62824b089a44f88938fb526852056b3",
+  "preprocessing": {
+    "artifact_rejection": "none",
+    "baseline_correction": "none",
+    "channel_selection": "all 64, audited original order",
+    "direction": "forward causal",
+    "epoch_interval": "[cue+1s, cue+4s)",
+    "epoch_samples": 480,
+    "filter": "scipy.signal.butter + sosfilt",
+    "initial_state": "zero, reset separately for each continuous run",
+    "padding": "none",
+    "prototype_order": 4,
+    "realized_bandpass_order": 8,
+    "reference": "recorded reference retained; ear unspecified",
+    "resampling": "none",
+    "sos": [
+      [
+        0.013977425590721182,
+        0.027954851181442364,
+        0.013977425590721182,
+        1.0,
+        -0.8160147868591654,
+        0.3112202785898096
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.4180793140405759,
+        0.5614248698642595
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -0.6691559641450511,
+        0.6400830173610833
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.7615861237988146,
+        0.8580027030590058
+      ]
+    ],
+    "warmup_s": 2.0
+  },
+  "runs": [
+    {
+      "channels": [
+        "Fc5",
+        "Fc3",
+        "Fc1",
+        "Fcz",
+        "Fc2",
+        "Fc4",
+        "Fc6",
+        "C5",
+        "C3",
+        "C1",
+        "Cz",
+        "C2",
+        "C4",
+        "C6",
+        "Cp5",
+        "Cp3",
+        "Cp1",
+        "Cpz",
+        "Cp2",
+        "Cp4",
+        "Cp6",
+        "Fp1",
+        "Fpz",
+        "Fp2",
+        "Af7",
+        "Af3",
+        "Afz",
+        "Af4",
+        "Af8",
+        "F7",
+        "F5",
+        "F3",
+        "F1",
+        "Fz",
+        "F2",
+        "F4",
+        "F6",
+        "F8",
+        "Ft7",
+        "Ft8",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "Tp7",
+        "Tp8",
+        "P7",
+        "P5",
+        "P3",
+        "P1",
+        "Pz",
+        "P2",
+        "P4",
+        "P6",
+        "P8",
+        "Po7",
+        "Po3",
+        "Poz",
+        "Po4",
+        "Po8",
+        "O1",
+        "Oz",
+        "O2",
+        "Iz"
+      ],
+      "duration_s": 125.0,
+      "edf_set_samples_equal_in_volts": true,
+      "events": [
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 0.0,
+          "sample": 0
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 4.2,
+          "sample": 672
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 8.3,
+          "sample": 1328
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 12.5,
+          "sample": 2000
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 16.6,
+          "sample": 2656
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 20.8,
+          "sample": 3328
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 24.9,
+          "sample": 3984
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 29.1,
+          "sample": 4656
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 33.2,
+          "sample": 5312
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 37.4,
+          "sample": 5984
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 41.5,
+          "sample": 6640
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 45.7,
+          "sample": 7312
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 49.8,
+          "sample": 7968
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 54.0,
+          "sample": 8640
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 58.1,
+          "sample": 9296
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 62.3,
+          "sample": 9968
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 66.4,
+          "sample": 10624
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 70.6,
+          "sample": 11296
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 74.7,
+          "sample": 11952
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 78.9,
+          "sample": 12624
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 83.0,
+          "sample": 13280
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 87.2,
+          "sample": 13952
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 91.3,
+          "sample": 14608
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 95.5,
+          "sample": 15280
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 99.6,
+          "sample": 15936
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 103.8,
+          "sample": 16608
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 107.9,
+          "sample": 17264
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 112.1,
+          "sample": 17936
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 116.2,
+          "sample": 18592
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 120.4,
+          "sample": 19264
+        }
+      ],
+      "exclusions": [],
+      "imagery_counts": {
+        "left": 8,
+        "right": 7
+      },
+      "rest_events": 15,
+      "run": 4,
+      "samples": 20000,
+      "sampling_hz": 160.0,
+      "session": 1,
+      "set_reference_field": "common",
+      "stored_units": "uV",
+      "unannotated_tail_s": 0.5,
+      "working_units": "V"
+    },
+    {
+      "channels": [
+        "Fc5",
+        "Fc3",
+        "Fc1",
+        "Fcz",
+        "Fc2",
+        "Fc4",
+        "Fc6",
+        "C5",
+        "C3",
+        "C1",
+        "Cz",
+        "C2",
+        "C4",
+        "C6",
+        "Cp5",
+        "Cp3",
+        "Cp1",
+        "Cpz",
+        "Cp2",
+        "Cp4",
+        "Cp6",
+        "Fp1",
+        "Fpz",
+        "Fp2",
+        "Af7",
+        "Af3",
+        "Afz",
+        "Af4",
+        "Af8",
+        "F7",
+        "F5",
+        "F3",
+        "F1",
+        "Fz",
+        "F2",
+        "F4",
+        "F6",
+        "F8",
+        "Ft7",
+        "Ft8",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "Tp7",
+        "Tp8",
+        "P7",
+        "P5",
+        "P3",
+        "P1",
+        "Pz",
+        "P2",
+        "P4",
+        "P6",
+        "P8",
+        "Po7",
+        "Po3",
+        "Poz",
+        "Po4",
+        "Po8",
+        "O1",
+        "Oz",
+        "O2",
+        "Iz"
+      ],
+      "duration_s": 125.0,
+      "edf_set_samples_equal_in_volts": true,
+      "events": [
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 0.0,
+          "sample": 0
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 4.2,
+          "sample": 672
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 8.3,
+          "sample": 1328
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 12.5,
+          "sample": 2000
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 16.6,
+          "sample": 2656
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 20.8,
+          "sample": 3328
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 24.9,
+          "sample": 3984
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 29.1,
+          "sample": 4656
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 33.2,
+          "sample": 5312
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 37.4,
+          "sample": 5984
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 41.5,
+          "sample": 6640
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 45.7,
+          "sample": 7312
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 49.8,
+          "sample": 7968
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 54.0,
+          "sample": 8640
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 58.1,
+          "sample": 9296
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 62.3,
+          "sample": 9968
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 66.4,
+          "sample": 10624
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 70.6,
+          "sample": 11296
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 74.7,
+          "sample": 11952
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 78.9,
+          "sample": 12624
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 83.0,
+          "sample": 13280
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 87.2,
+          "sample": 13952
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 91.3,
+          "sample": 14608
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 95.5,
+          "sample": 15280
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 99.6,
+          "sample": 15936
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 103.8,
+          "sample": 16608
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 107.9,
+          "sample": 17264
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 112.1,
+          "sample": 17936
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 116.2,
+          "sample": 18592
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 120.4,
+          "sample": 19264
+        }
+      ],
+      "exclusions": [],
+      "imagery_counts": {
+        "left": 8,
+        "right": 7
+      },
+      "rest_events": 15,
+      "run": 8,
+      "samples": 20000,
+      "sampling_hz": 160.0,
+      "session": 1,
+      "set_reference_field": "common",
+      "stored_units": "uV",
+      "unannotated_tail_s": 0.5,
+      "working_units": "V"
+    },
+    {
+      "channels": [
+        "Fc5",
+        "Fc3",
+        "Fc1",
+        "Fcz",
+        "Fc2",
+        "Fc4",
+        "Fc6",
+        "C5",
+        "C3",
+        "C1",
+        "Cz",
+        "C2",
+        "C4",
+        "C6",
+        "Cp5",
+        "Cp3",
+        "Cp1",
+        "Cpz",
+        "Cp2",
+        "Cp4",
+        "Cp6",
+        "Fp1",
+        "Fpz",
+        "Fp2",
+        "Af7",
+        "Af3",
+        "Afz",
+        "Af4",
+        "Af8",
+        "F7",
+        "F5",
+        "F3",
+        "F1",
+        "Fz",
+        "F2",
+        "F4",
+        "F6",
+        "F8",
+        "Ft7",
+        "Ft8",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "Tp7",
+        "Tp8",
+        "P7",
+        "P5",
+        "P3",
+        "P1",
+        "Pz",
+        "P2",
+        "P4",
+        "P6",
+        "P8",
+        "Po7",
+        "Po3",
+        "Poz",
+        "Po4",
+        "Po8",
+        "O1",
+        "Oz",
+        "O2",
+        "Iz"
+      ],
+      "duration_s": 125.0,
+      "edf_set_samples_equal_in_volts": true,
+      "events": [
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 0.0,
+          "sample": 0
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 4.2,
+          "sample": 672
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 8.3,
+          "sample": 1328
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 12.5,
+          "sample": 2000
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 16.6,
+          "sample": 2656
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 20.8,
+          "sample": 3328
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 24.9,
+          "sample": 3984
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 29.1,
+          "sample": 4656
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 33.2,
+          "sample": 5312
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 37.4,
+          "sample": 5984
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 41.5,
+          "sample": 6640
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 45.7,
+          "sample": 7312
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 49.8,
+          "sample": 7968
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 54.0,
+          "sample": 8640
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 58.1,
+          "sample": 9296
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 62.3,
+          "sample": 9968
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 66.4,
+          "sample": 10624
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 70.6,
+          "sample": 11296
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 74.7,
+          "sample": 11952
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 78.9,
+          "sample": 12624
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 83.0,
+          "sample": 13280
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 87.2,
+          "sample": 13952
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 91.3,
+          "sample": 14608
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 95.5,
+          "sample": 15280
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 99.6,
+          "sample": 15936
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 103.8,
+          "sample": 16608
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 107.9,
+          "sample": 17264
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T1",
+          "onset_s": 112.1,
+          "sample": 17936
+        },
+        {
+          "duration_s": 4.2,
+          "label": "TASK2T0",
+          "onset_s": 116.2,
+          "sample": 18592
+        },
+        {
+          "duration_s": 4.1,
+          "label": "TASK2T2",
+          "onset_s": 120.4,
+          "sample": 19264
+        }
+      ],
+      "exclusions": [],
+      "imagery_counts": {
+        "left": 7,
+        "right": 8
+      },
+      "rest_events": 15,
+      "run": 12,
+      "samples": 20000,
+      "sampling_hz": 160.0,
+      "session": 1,
+      "set_reference_field": "common",
+      "stored_units": "uV",
+      "unannotated_tail_s": 0.5,
+      "working_units": "V"
+    }
+  ],
+  "source_files_unchanged": true,
+  "subject": "sub-001",
+  "test_trial_count": 15,
+  "train_trial_count": 30
+}

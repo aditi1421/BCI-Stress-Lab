@@ -1,0 +1,85 @@
+{
+  "both_decoders_input_hashes": {
+    "bandpower_lda": {
+      "test_X_sha256": "113d01e03d607c995de9ad159faae887fe8779076d0896f79f78c63347310df9",
+      "test_y_sha256": "12593df020026a0ba635b2d5c388fe4e6f587d92c0431edb0530e636c33a73dc",
+      "train_X_sha256": "eccbc3507316ddadab863250e7cb1db06531da07980e9ec774eeaf4fc2d2560b",
+      "train_y_sha256": "fcaa1ffcad346b3e3ad0eb3dd2e0ff34d4c981c7f21b35b4282b47dd5ca2f49f"
+    },
+    "csp_lda": {
+      "test_X_sha256": "113d01e03d607c995de9ad159faae887fe8779076d0896f79f78c63347310df9",
+      "test_y_sha256": "12593df020026a0ba635b2d5c388fe4e6f587d92c0431edb0530e636c33a73dc",
+      "train_X_sha256": "eccbc3507316ddadab863250e7cb1db06531da07980e9ec774eeaf4fc2d2560b",
+      "train_y_sha256": "fcaa1ffcad346b3e3ad0eb3dd2e0ff34d4c981c7f21b35b4282b47dd5ca2f49f"
+    }
+  },
+  "disjoint_runs": true,
+  "disjoint_trial_ids": true,
+  "fitting_scope": "All observed/permuted fits use training epochs only",
+  "inputs_unchanged_after_all_fits": true,
+  "no_duplicate_epoch_across_splits": true,
+  "prediction_checks": {
+    "bandpower_lda": {
+      "learned_state_unchanged": true,
+      "prediction_batch_independent": true
+    },
+    "csp_lda": {
+      "learned_state_unchanged": true,
+      "prediction_batch_independent": true
+    }
+  },
+  "same_channel_order_and_epoch_dimensions": true,
+  "test_X_sha256": "113d01e03d607c995de9ad159faae887fe8779076d0896f79f78c63347310df9",
+  "test_trials": [
+    "sub-001_run-12_sample-672",
+    "sub-001_run-12_sample-2000",
+    "sub-001_run-12_sample-3328",
+    "sub-001_run-12_sample-4656",
+    "sub-001_run-12_sample-5984",
+    "sub-001_run-12_sample-7312",
+    "sub-001_run-12_sample-8640",
+    "sub-001_run-12_sample-9968",
+    "sub-001_run-12_sample-11296",
+    "sub-001_run-12_sample-12624",
+    "sub-001_run-12_sample-13952",
+    "sub-001_run-12_sample-15280",
+    "sub-001_run-12_sample-16608",
+    "sub-001_run-12_sample-17936",
+    "sub-001_run-12_sample-19264"
+  ],
+  "test_y_sha256": "12593df020026a0ba635b2d5c388fe4e6f587d92c0431edb0530e636c33a73dc",
+  "train_X_sha256": "eccbc3507316ddadab863250e7cb1db06531da07980e9ec774eeaf4fc2d2560b",
+  "train_trials": [
+    "sub-001_run-4_sample-672",
+    "sub-001_run-4_sample-2000",
+    "sub-001_run-4_sample-3328",
+    "sub-001_run-4_sample-4656",
+    "sub-001_run-4_sample-5984",
+    "sub-001_run-4_sample-7312",
+    "sub-001_run-4_sample-8640",
+    "sub-001_run-4_sample-9968",
+    "sub-001_run-4_sample-11296",
+    "sub-001_run-4_sample-12624",
+    "sub-001_run-4_sample-13952",
+    "sub-001_run-4_sample-15280",
+    "sub-001_run-4_sample-16608",
+    "sub-001_run-4_sample-17936",
+    "sub-001_run-4_sample-19264",
+    "sub-001_run-8_sample-672",
+    "sub-001_run-8_sample-2000",
+    "sub-001_run-8_sample-3328",
+    "sub-001_run-8_sample-4656",
+    "sub-001_run-8_sample-5984",
+    "sub-001_run-8_sample-7312",
+    "sub-001_run-8_sample-8640",
+    "sub-001_run-8_sample-9968",
+    "sub-001_run-8_sample-11296",
+    "sub-001_run-8_sample-12624",
+    "sub-001_run-8_sample-13952",
+    "sub-001_run-8_sample-15280",
+    "sub-001_run-8_sample-16608",
+    "sub-001_run-8_sample-17936",
+    "sub-001_run-8_sample-19264"
+  ],
+  "train_y_sha256": "fcaa1ffcad346b3e3ad0eb3dd2e0ff34d4c981c7f21b35b4282b47dd5ca2f49f"
+}
