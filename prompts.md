@@ -55,3 +55,7 @@ default to e he previous model then..
 ## 2026-10-05 — Prompt 12
 
 now try
+
+## 2026-10-05 — Prompt 13
+
+decoder-controls.md still says “no decoder trained or implementation written”, while the README and clean-result report clearly show that this stage is now complete. Can u check this one?

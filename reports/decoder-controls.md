@@ -1,6 +1,8 @@
 # Separating CSP sensitivity from broader decoder fragility
 
-Status: proposed control design; no decoder trained or implementation written. Dataset and trial-window eligibility remain subject to the independent `.set` audit. Existing split: run 4 development training, run 8 development evaluation, run 12 final evaluation after protocol freeze and refitting on 4+8.
+Status: the clean decoding stage is implemented and evaluated. The [actual-file audit](sub-001-audit.md) verified all selected trial windows. Both decoders were trained on runs **4 and 8** and evaluated on the fixed later-run test set, **run 12**, without test-set tuning. The [completed result report](clean-sub001/README.md) records 60.71% balanced accuracy for CSP + LDA and 46.43% for per-channel log-bandpower + LDA, together with 199 label permutations, leakage checks, and an exact reproducibility repeat.
+
+The corruption comparisons, known-fault refits, channel-location sweeps, and elapsed-time experiments below remain proposed future work. No signal corruptions have been implemented or evaluated.
 
 ## What the original experiment can establish
 
@@ -8,14 +10,16 @@ Both explanations can contribute. A channel fault can remove useful motor inform
 
 There is also an important distinction: with test-only corruption and a **frozen CSP**, its training covariance matrices and spatial filters are not re-estimated. Thus failure is not directly evidence of corrupted covariance *estimation during fitting*. The fixed projection receives altered spatial covariance; its projected powers and the LDA decision inputs change. The original CSP paper distinguishes estimation sensitivity from post-fit artifact effects. [Ramoser et al., 2000, discussion](https://www.cs.hmc.edu/~keller/eeg/Ramoser.pdf)
 
-## Minimum useful paired control
+## Implemented paired decoders
 
 | Arm | Features | Classifier |
 | --- | --- | --- |
 | A: current baseline | Four regularized CSP projections, followed by log mean-square power | Shrinkage LDA |
 | B: spatial-filter control | One log mean-square bandpower feature per input EEG channel; no learned spatial mixing | Same shrinkage LDA settings |
 
-Use the exact same EEG channels, recorded reference, causal temporal filter, eligible trial windows, split, corrupted signal copies, channel masks, amplitude grid, and seeds for both arms. No trial rejection or interpolation in either arm. Any feature scaling and the fixed floor required to keep log power finite are set from training data or a preregistered physical-unit constant, never from test trials. Save numerical failures explicitly.
+The clean implementation uses identical EEG channels, recorded reference, causal temporal filtering, eligible trial windows, and train/test splits for both arms, with no trial rejection or interpolation. Both use a fixed numerical power floor of `1e-24` in squared input units (sensor volts or CSP projection units); it was set before test evaluation.
+
+For future corruption comparisons, also use identical corrupted signal copies, channel masks, amplitude grids, and seeds for both arms. Any learned scaling must use training data only. Save numerical failures explicitly.
 
 CSP is a supervised spatial decomposition whose covariance estimation and power transform are configurable. Arm B removes this learned spatial decomposition. However, **B is not covariance-free**: LDA still estimates feature covariance. Its feature dimension also differs from A. The comparison tests practical sensitivity associated with the CSP feature pipeline, not a pure causal attribution to one mathematical operation. [MNE CSP documentation](https://mne.tools/stable/generated/mne.decoding.CSP.html), [scikit-learn LDA documentation](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html)
 
@@ -36,4 +40,6 @@ Run both arms on the same fixed-severity step exposures, with multiple label-ind
 
 ## Recommendation
 
-Make **CSP + LDA versus per-channel bandpower + LDA** mandatory in the first implementation. Add known-fault refitting and single-channel location results only after the two baselines are usable. Retain the claim “controlled robustness of these decoders on recorded EEG.” Realistic outside-lab fragility will later need empirically grounded artifacts or recordings collected under those conditions; swapping classifiers alone cannot establish it.
+Keep **CSP + LDA versus per-channel bandpower + LDA** as the paired comparison in later stress experiments. The clean implementation is complete, but the bandpower control is near chance on the 15 held-out trials and both observed scores fall within their respective permutation reference ranges. These results do not yet establish two usable baselines for robustness comparisons; do not tune against run 12 to improve them.
+
+Known-fault refitting and single-channel location experiments remain follow-up diagnostics. Any future stress results should be described as controlled robustness of these decoders on recorded EEG. Realistic outside-lab fragility will need empirically grounded artifacts or recordings collected under those conditions; swapping classifiers alone cannot establish it.

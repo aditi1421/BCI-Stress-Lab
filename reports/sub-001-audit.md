@@ -92,7 +92,7 @@ All 45 half-open windows `[cue + 1 s, cue + 4 s)` fit inside their source-annota
 7. **No dedicated EOG or artifact ground truth.** Synthetic channel faults measure controlled sensitivity; realism requires a later empirical artifact validation.
 8. **CSP cannot be the only decoder.** Add matched fixed-channel log-bandpower + shrinkage LDA as a mandatory control; see `decoder-controls.md`. Similar or different deterioration across these two pipelines does not establish universal BCI fragility.
 
-The selected task, run split, and 1–4 s windows are supported by these files. Run 12 was inspected for data integrity only; no model was fit or scored and no performance-driven choice was made.
+The selected task, run split, and 1–4 s windows are supported by these files. During this audit, run 12 was inspected for data integrity only; no model was fit or scored and no performance-driven choice was made. The subsequent fixed clean-decoding evaluation is documented in the [completed result report](clean-sub001/README.md).
 
 ## Saved evidence
 
