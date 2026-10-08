@@ -27,6 +27,16 @@ The output directory must be new. Stress outputs include per-condition CSV/JSON 
 
 All **116 tests** passed before execution. A second run reproduced all 17 deterministic result artifacts exactly. Neither the clean protocol nor its saved results changed. There is no elapsed-time experiment, fault recovery, retraining under faults, dashboard, or additional corruption family in this phase.
 
+## Explore the results
+
+An interactive explorer reads the committed results in `reports/stress-sub001` and never refits or reruns a decoder:
+
+```sh
+uv run --group ui streamlit run app/stress_explorer.py
+```
+
+Choose a corruption family, severity, and seed to see both decoders' balanced accuracy, constant-class collapse, trial-by-trial predictions, and the curve across all ten seeds. When the audited recordings are cached under `data/`, it also draws the held-out run 12 trial before and after the same seeded corruption.
+
 ## Fixed experiment
 
 | Setting | Value |

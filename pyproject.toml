@@ -14,6 +14,7 @@ bci-stress = "bci_stress.cli:main"
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "ruff>=0.9"]
+ui = ["streamlit>=1.40,<2", "pandas>=2.2,<3"]
 
 [build-system]
 requires = ["hatchling"]
